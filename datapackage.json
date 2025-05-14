@@ -1,16 +1,9 @@
 {
-    "name": "ddf--open_numbers--integrated_values_surveys_indicators",
     "language": {
         "name": "English",
-        "id": "en"
+        "id": "en-US"
     },
-    "title": "Integrated Values Surveys Indicators",
-    "description": "Integrated Values Surveys Indicators",
-    "author": "Gapminder",
-    "license": "CC-BY-4.0",
-    "translations": [],
-    "version": "0.0.1",
-    "created": "2022-10-02T02:59:10.856944+00:00",
+    "created": "2025-05-14T02:59:39.986Z",
     "resources": [
         {
             "name": "ddf--concepts",
@@ -25,9 +18,73 @@
                     },
                     {
                         "name": "name"
+                    },
+                    {
+                        "name": "domain"
                     }
                 ],
-                "primaryKey": "concept"
+                "primaryKey": [
+                    "concept"
+                ]
+            }
+        },
+        {
+            "name": "ddf--entities--geo--country",
+            "path": "ddf--entities--geo--country.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "country"
+                    },
+                    {
+                        "name": "name"
+                    }
+                ],
+                "primaryKey": [
+                    "country"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--survsagg--by--geo--year",
+            "path": "ddf--datapoints--survsagg--by--geo--year.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "year"
+                    },
+                    {
+                        "name": "survsagg"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "year"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--tradagg--by--geo--year",
+            "path": "ddf--datapoints--tradagg--by--geo--year.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "year"
+                    },
+                    {
+                        "name": "tradagg"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "year"
+                ]
             }
         }
     ],
@@ -46,14 +103,83 @@
                 "primaryKey": [
                     "concept"
                 ],
+                "value": "domain",
+                "resources": [
+                    "ddf--concepts"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "concept"
+                ],
                 "value": "name",
                 "resources": [
                     "ddf--concepts"
                 ]
             }
         ],
-        "entities": [],
-        "datapoints": [],
+        "entities": [
+            {
+                "primaryKey": [
+                    "country"
+                ],
+                "value": "name",
+                "resources": [
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "name",
+                "resources": [
+                    "ddf--entities--geo--country"
+                ]
+            }
+        ],
+        "datapoints": [
+            {
+                "primaryKey": [
+                    "country",
+                    "year"
+                ],
+                "value": "survsagg",
+                "resources": [
+                    "ddf--datapoints--survsagg--by--geo--year"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "year"
+                ],
+                "value": "tradagg",
+                "resources": [
+                    "ddf--datapoints--tradagg--by--geo--year"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "year"
+                ],
+                "value": "survsagg",
+                "resources": [
+                    "ddf--datapoints--survsagg--by--geo--year"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "year"
+                ],
+                "value": "tradagg",
+                "resources": [
+                    "ddf--datapoints--tradagg--by--geo--year"
+                ]
+            }
+        ],
         "synonyms": []
     }
 }

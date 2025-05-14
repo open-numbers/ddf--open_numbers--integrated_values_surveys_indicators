@@ -1,2 +1,8 @@
-concept,concept_type,name
-name,string,Name
+concept,concept_type,name,domain
+tradagg,measure,Traditional vs Rational Values,
+survsagg,measure,Survival vs Self-Expression Values,
+geo,entity_domain,Geography,
+country,entity_set,Country,geo
+name,string,Name,
+year,time,Year,
+domain,string,Domain,
